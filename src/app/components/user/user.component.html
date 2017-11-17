@@ -1,4 +1,4 @@
-<h1>HELLO {{user_title}}</h1>
+<h1>HELLO {{name}}</h1>
 <ul>
 	<li>{{address.street}}</li>
 	<li>{{address.city}}</li>
@@ -6,7 +6,11 @@
 </ul>	 
 <h1>Hobbies</h1>
 <ul>
-<li *ngFor = 'let hobby of hobbies; let i = index'>{{i+1}}: {{hobby}}</li>
+<li *ngFor = 'let hobby of hobbies; let i = index'>{{i+1}}: {{hobby}} <button (click) = 'deleteHobby(hobby)'>X</button></li>
 </ul>
+<form (submit)="addHobby(hobby.value)">
+	<label>Add Hobby</label>
+	<input type="text" #hobby>
+</form>
 
-<button (click) = 'onClick()'>Submit</button>
+<button (click) = 'addHobby(hobby.value)'>Submit</button>
