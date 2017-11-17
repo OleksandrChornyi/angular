@@ -1,0 +1,12 @@
+<h1>HELLO {{user_title}}</h1>
+<ul>
+	<li>{{address.street}}</li>
+	<li>{{address.city}}</li>
+	<li>{{address.state}}</li>
+</ul>	 
+<h1>Hobbies</h1>
+<ul>
+<li *ngFor = 'let hobby of hobbies; let i = index'>{{i+1}}: {{hobby}}</li>
+</ul>
+
+<button (click) = 'onClick()'>Submit</button>
