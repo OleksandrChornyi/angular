@@ -19,7 +19,7 @@ export class UserComponent implements OnInit
 
   ngOnInit() 
   {
-    this.name = 'Hlib';
+    this.name = 'Pidr';
     this.address = 
     {
       street: '50 main st',
@@ -49,7 +49,6 @@ export class UserComponent implements OnInit
   
 }
 
- 
 }
 interface Address {
   street: string;
