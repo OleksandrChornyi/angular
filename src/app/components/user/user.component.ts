@@ -5,22 +5,22 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
-export class UserComponent implements OnInit 
+export class UserComponent implements OnInit
 {
 
   name: string;
   hobbies: any[];
   address: Address;
-  
-  constructor() 
-  { 
-  
+
+  constructor()
+  {
+
   }
 
-  ngOnInit() 
+  ngOnInit()
   {
-    this.name = 'Pidr';
-    this.address = 
+    this.name = 'gowno';
+    this.address =
     {
       street: '50 main st',
       city: 'NewYork',
@@ -28,14 +28,14 @@ export class UserComponent implements OnInit
     }
     this.hobbies = ['Snowboarding', 'Crypro'];
   }
-  
-  
+
+
   addHobby(hobby)
   {
     this.hobbies.push(hobby);
     return false;
   }
-  
+
   deleteHobby(hobby)
   {
     for (let i = 0; i < this.hobbies.length; i++)
@@ -46,10 +46,9 @@ export class UserComponent implements OnInit
         }
     }
   }
-  
-}
 
 }
+
 interface Address {
   street: string;
   city: string;
