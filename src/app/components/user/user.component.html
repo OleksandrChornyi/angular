@@ -1,16 +1,6 @@
-<h1>HELLO {{name}}</h1>
-<ul>
-	<li>{{address.street}}</li>
-	<li>{{address.city}}</li>
-	<li>{{address.state}}</li>
-</ul>	 
-<h1>PIZDA</h1>
-<ul>
-<li *ngFor = 'let hobby of hobbies; let i = index'>{{i+1}}: {{hobby}} <button (click) = 'deleteHobby(hobby)'>X</button></li>
-</ul>
-<form (submit)="addHobby(hobby.value)">
-	<label>Add Hobby</label>
-	<input type="text" #hobby >
-</form>
+<h1>Select the coin</h1>
 
-<button (click) = 'addHobby(hobby.value)'>Submit</button>
+<select>
+  <option *ngFor = "let coin of coins">{{coin.name}} ({{coin.symbol}})</option>
+</select>
+

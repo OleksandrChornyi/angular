@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import {DataService} from '../../services/data.service';
+
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -7,50 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit
 {
-
-  name: string;
-  hobbies: any[];
-  address: Address;
-
-  constructor()
+  
+  coins: Coins[];
+  
+  constructor(private dataService: DataService)
   {
 
   }
 
   ngOnInit()
   {
-    this.name = 'gowno';
-    this.address =
-    {
-      street: '50 main st',
-      city: 'NewYork',
-      state: 'NY'
-    }
-    this.hobbies = ['Snowboarding', 'Crypro'];
+    this.dataService.getCoins().subscribe((coins) => {
+     // console.log(coins);
+      this.coins = coins;
+    });
   }
 
-
-  addHobby(hobby)
-  {
-    this.hobbies.push(hobby);
-    return false;
-  }
-
-  deleteHobby(hobby)
-  {
-    for (let i = 0; i < this.hobbies.length; i++)
-    {
-      if (this.hobbies[i] == hobby)
-        {
-          this.hobbies.splice(i, 1);
-        }
-    }
-  }
-
+  
 }
 
-interface Address {
-  street: string;
-  city: string;
-  state: string;
-}
+interface Coins {
+  name: string;
+  symbol: string;
+  }
+
