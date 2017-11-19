@@ -11,7 +11,7 @@ export class UserComponent implements OnInit
 {
   
   coins: Coins[];
-  
+  selectedCoinPrice: string;
   constructor(private dataService: DataService)
   {
 
@@ -20,16 +20,19 @@ export class UserComponent implements OnInit
   ngOnInit()
   {
     this.dataService.getCoins().subscribe((coins) => {
-     // console.log(coins);
-      this.coins = coins;
+    this.coins = coins;
     });
   }
 
-  
+  selectCoin (event: any) {
+    // update the ui
+    this.selectedCoinPrice = event.target.value;
+  }
 }
 
 interface Coins {
   name: string;
   symbol: string;
+  price_usd: string;
   }
 
